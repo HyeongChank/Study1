@@ -1,0 +1,59 @@
+.content{
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 255, 0, 0.329);
+    width: 100vw;
+    height: 100vh;
+}
+.head{
+    display: flex;
+
+    background-color: blue;
+    color: white;
+    height: 10vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.main{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    background-color: rgba(0, 128, 0, 0.082);
+    width: 100vw;
+    height:500px;
+    
+}
+.Tc1, .Tc2{
+    background-color: rgba(255, 255, 0, 0.493);
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    flex-direction: column;
+    border: 1px solid black;
+    width: 30vw;
+ 
+    margin: 10px;
+}
+.c1List:hover, .c1List:active{
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+.Tcdetail{
+    width: 40vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    margin: 10px;
+    background-color: skyblue;
+    border: 1px solid black;
+}
+.c1List{
+    border: 1px solid black;
+    margin: 10px;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+}
