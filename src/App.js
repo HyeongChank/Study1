@@ -8,8 +8,8 @@ const App =()=>{
   return(
     <div>
       {/* {<Boxofficedetail/>} */}
-      {/* <Test/> */}
-      <Dbs/>
+      <Test/>
+      {/* <Dbs/> */}
     </div>
   );
 }
