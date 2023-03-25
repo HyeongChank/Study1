@@ -1,0 +1,61 @@
+create-react-app으로 만든 프로젝트의 경우, 기본적으로 webpack 설정 파일이 제공되지 않습니다. 대신 react-scripts 패키지에 의해 내부적으로 관리됩니다.
+
+따라서 webpack 설정을 변경하려면 react-scripts의 webpack 설정을 커스터마이징하는 방법을 사용해야 합니다.
+
+react-scripts의 webpack 설정을 커스터마이징하는 방법은 다음과 같습니다.
+
+config-overrides.js 파일 생성
+react-app-rewired 패키지를 사용하여 webpack 설정을 커스터마이징할 수 있습니다. config-overrides.js 파일을 프로젝트 루트 디렉토리에 생성합니다.
+
+react-app-rewired 패키지 설치
+npm install react-app-rewired --save-dev
+
+package.json 수정
+package.json 파일에서 scripts 부분을 다음과 같이 수정합니다.
+"scripts": {
+  "start": "react-app-rewired start",
+  "build": "react-app-rewired build",
+  "test": "react-app-rewired test",
+  "eject": "react-scripts eject"
+}
+
+자동
+"devDependencies": {
+  "react-app-rewired": "^2.2.1"
+}
+
+
+webpack 설정 커스터마이징
+config-overrides.js 파일에 다음과 같이 webpack 설정을 커스터마이징할 수 있습니다.
+const { useBabelRc, override, addWebpackResolve } = require('customize-cra');
+
+module.exports = override(
+  useBabelRc(),
+  addWebpackResolve({
+    fallback: {
+      stream: require.resolve('stream-browserify'),
+      path: require.resolve("path-browserify"),
+    },
+  })
+);
+
+
+customize-cra 모듈은 react-app-rewired 모듈과 함께 사용됩니다.
+
+따라서, npm install customize-cra 명령어를 실행하여 customize-cra 모듈을 설치
+
+
+import * as XLSX from "xlsx";
+
+최종 config-overrides.js파일
+const { useBabelRc, override, addWebpackResolve } = require('customize-cra');
+
+module.exports = override(
+  useBabelRc(),
+  addWebpackResolve({
+    fallback: {
+      stream: require.resolve('stream-browserify'),
+      path: require.resolve("path-browserify"),
+    },
+  })
+);
